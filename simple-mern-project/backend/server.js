@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const uuid = require('uuid');
+// const uuid = require('uuid');
+const { v4: uuidv4 } = require('uuid'); //updated as per the latest react app changes
 
 const app = express();
 
@@ -36,7 +37,7 @@ app.post('/product', (req, res, next) => {
   }
 
   const createdProduct = {
-    id: uuid(),
+    id: uuidv4(),
     title,
     price
   };
@@ -48,4 +49,4 @@ app.post('/product', (req, res, next) => {
     .json({ message: 'Created new product.', product: createdProduct });
 });
 
-app.listen(8000); // start Node + Express server on port 5000
+app.listen(8000); // start Node + Express server on port 8000
