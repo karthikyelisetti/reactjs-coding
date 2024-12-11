@@ -15,16 +15,14 @@ const App = () => {
     <Router>
       <MainNavigation />
       <main>
-        <Switch>
-          <Route path="/" exact>
-            <Users />
-          </Route>
-          <Route path="/places/new" exact>
-            <NewPlace />
-          </Route>
-          <Redirect to="/" />
-        </Switch>
+        <Routes>
+          {/* react-router-dom version 6 no longer supports the use of components directly. Use an element to specify the component you route.
+  Route has to be a child of Routes  */}
+          <Route path="/" element={ <Users />} />
+          <Route path="/places/new" element={ <NewPlace /> } />
+        </Routes>
       </main>
+      <Navigate to="/" />
     </Router>
   );
 };
